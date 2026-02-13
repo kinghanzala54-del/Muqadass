@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Muqaddas 💙</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+.container {
+    position: relative;
+    margin-top: 15%;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 50px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px #00bfff; }
+    to { text-shadow: 0 0 25px #00ffff; }
+}
+
+#typing {
+    font-size: 26px;
+    margin-top: 20px;
+    color: #ffd700;
+    min-height: 40px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: black;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+button:hover {
+    background: #00bfff;
+    color: white;
+}
+
+.heart {
+    position: absolute;
+    color: #00bfff;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh);
+        opacity: 0;
+    }
+}
+
+#secret {
+    font-size: 28px;
+    margin-top: 20px;
+    color: #00ffff;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Muqaddas Javed 💙</h1>
+
+<div id="typing"></div>
+
+<button onclick="showSecret()">Click Here 💙</button>
+
+<div id="secret"></div>
+
+</div>
+
+<audio autoplay loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+// Typing message
+const message = "You are not just my bestie... You are someone very special to me 💙 – Zain Ul Abideen";
+let i = 0;
+
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("typing").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 60);
+    }
+}
+
+typeWriter();
+
+// Secret message
+function showSecret() {
+    document.getElementById("secret").innerHTML =
+    "I feel lucky every day to have you in my life 💙";
+}
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💙";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}
+
+setInterval(createHeart, 300);
+
+</script>
+
+</body>
+</html>
